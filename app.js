@@ -13,7 +13,8 @@ const solver = new sudokuSolver();
 
 app.get("/", (req, res) => {
     let p = req.query.puzzle;
-    res.send(solver.solve(p));
+    const solved = JSON.parse(solver.solve(p));
+    res.send(solved);
 });
 
 app.listen(port, () => {
